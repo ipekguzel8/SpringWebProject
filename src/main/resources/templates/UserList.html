@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <link th:href="@{/css/style.css}" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+  <title>Title</title>
+</head>
+
+<body>
+<h1 th:text="${currentUser.name}"></h1>
+<div style="overflow-x:hidden;">
+  <a class="btn btn-info" href="/user/add" role="button">Kullanıcı Ekle</a>
+  <table class="table">
+    <thead class="thead-dark">
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Name</th>
+      <th scope="col">Surname</th>
+      <th scope="col">Password</th>
+      <th scope="col">Birth Date</th>
+      <th scope="col">Email</th>
+      <th scope="col">Role</th>
+      <th scope="col">Tel No</th>
+      <th scope="col"></th>
+      <th scope="col"></th>
+    </tr>
+    </thead>
+    <tbody class="thead-light">
+    <tr th:each="user : ${userList}">
+      <td th:text="${user.id}"></td>
+      <td th:text="${user.name}"></td>
+      <td th:text="${user.surname}"></td>
+      <td th:text="${user.password}"></td>
+      <td th:text="${user.date}"></td>
+      <td th:text="${user.mail}"></td>
+      <td th:text="${user.role}"></td>
+      <td th:text="${user.telno}"></td>
+      <td><a class="btn btn-success" role="button" th:href="@{/user/edit/{id}(id=${user.id})}">Edit</a></td>
+      <td><a class="btn btn-danger" role="button" th:href="@{/user/delete/{id}(id=${user.id})}">Delete</a></td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+</body>
+</html>
