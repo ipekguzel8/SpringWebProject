@@ -53,6 +53,7 @@ public class XUserController {
     @PostMapping("/login")
     public String loginP(@ModelAttribute UserDto userDto){
         XUser xUserx = userService.loginAuth(userDto);
+        System.out.println(xUserx.getRole()+"-----------------------------------");
         currentUser.setxUser(xUserx);
         return "redirect:/user/users";
     }

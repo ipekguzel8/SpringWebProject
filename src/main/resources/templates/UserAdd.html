@@ -34,7 +34,7 @@
     <input type="text" class="form-control" th:field="*{password}" id="password">
     </br>
     <input type="submit" class="btn btn-success" value="Register">
-    <button type="button" class="btn btn-primary"><a href="/user/users">Cancel</a></button>
+    <a th:href="@{/user/users}" class="btn btn-primary" role="button" aria-pressed="true">Cancel</a>
   </form>
 </div>
 </body>

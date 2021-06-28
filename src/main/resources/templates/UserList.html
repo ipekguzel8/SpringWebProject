@@ -38,10 +38,16 @@
       <td th:text="${user.role}"></td>
       <td th:text="${user.telno}"></td>
       <td><a class="btn btn-success" role="button" th:href="@{/user/edit/{id}(id=${user.id})}">Edit</a></td>
-      <td><a class="btn btn-danger" role="button" th:href="@{/user/delete/{id}(id=${user.id})}">Delete</a></td>
+      <td><a class="btn btn-danger" role="button" th:href="@{/user/delete/{id}(id=${user.id})}" th:if="${currentUser.role == T(com.avansas.springwebproject.entities.Role).Admin}">Delete</a></td>
     </tr>
     </tbody>
   </table>
 </div>
 </body>
 </html>
+<script>
+  $('.btn-danger').on('show.bs.modal', function (e) {
+    $(this).find('.btn-ok').attr('href', $(e.relatedTarget).data('href'));
+    $('#modal-deleteHiddenId').val($(this).find('.btn-ok').attr('href'));
+  });
+</script>

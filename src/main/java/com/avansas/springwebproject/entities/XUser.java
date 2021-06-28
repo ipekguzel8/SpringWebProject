@@ -25,7 +25,6 @@ public class XUser extends BaseEntity{
 
     @Column(name = "Password")
     @NotEmpty
-    @Size(max = 8,min = 8,message = "User password must be 8 characters.")
     private String password;
 
     @Column(name = "Name")
